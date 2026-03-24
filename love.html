@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ffebef;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Georgia', serif;
+    }
+    h1 {
+      font-size: 3em;
+      color: #d10056;
+      text-align: center;
+    }
+    .rose {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Rose_icon.svg/1024px-Rose_icon.svg.png');
+      background-size: cover;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>I Love You Pontjopontjo,<br>My Queen 🌹</h1>
+
+  <script>
+    function createRose() {
+      const rose = document.createElement('div');
+      rose.className = 'rose';
+      rose.style.left = Math.random() * window.innerWidth + 'px';
+      rose.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(rose);
+      setTimeout(() => rose.remove(), 10000);
+    }
+    setInterval(createRose, 500);
+  </script>
+</body>
+</html>
